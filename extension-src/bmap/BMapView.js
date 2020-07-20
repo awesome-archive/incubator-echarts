@@ -19,6 +19,15 @@
 
 import * as echarts from 'echarts';
 
+function isEmptyObject(obj) {
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 export default echarts.extendComponentView({
     type: 'bmap',
 
@@ -87,6 +96,7 @@ export default echarts.extendComponentView({
             bmap.disablePinchToZoom();
         }
 
+        /* map 2.0 */
         var originalStyle = bMapModel.__mapStyle;
 
         var newMapStyle = bMapModel.get('mapStyle') || {};
@@ -94,10 +104,24 @@ export default echarts.extendComponentView({
         var mapStyleStr = JSON.stringify(newMapStyle);
         if (JSON.stringify(originalStyle) !== mapStyleStr) {
             // FIXME May have blank tile when dragging if setMapStyle
-            if (Object.keys(newMapStyle).length) {
-                bmap.setMapStyle(newMapStyle);
+            if (!isEmptyObject(newMapStyle2)) {
+                bmap.setMapStyle(echarts.util.clone(newMapStyle));
             }
             bMapModel.__mapStyle = JSON.parse(mapStyleStr);
+        }
+
+        /* map 3.0 */
+        var originalStyle2 = bMapModel.__mapStyle2;
+
+        var newMapStyle2 = bMapModel.get('mapStyleV2') || {};
+        // FIXME, Not use JSON methods
+        var mapStyleStr2 = JSON.stringify(newMapStyle2);
+        if (JSON.stringify(originalStyle2) !== mapStyleStr2) {
+            // FIXME May have blank tile when dragging if setMapStyle
+            if (!isEmptyObject(newMapStyle2)) {
+                bmap.setMapStyleV2(echarts.util.clone(newMapStyle2));
+            }
+            bMapModel.__mapStyle2 = JSON.parse(mapStyleStr2);
         }
 
         rendering = false;
