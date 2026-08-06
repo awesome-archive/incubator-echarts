@@ -22,7 +22,9 @@ under the License.
 <html>
     <head>
         <meta charset="utf-8">
-        <script src="../dist/echarts.js"></script>
+        <script src="lib/simpleRequire.js"></script>
+        <script src="lib/config.js"></script>
+        <script src="lib/facePrint.js"></script>
         <script src="lib/jquery.min.js"></script>
         <script src="lib/facePrint.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,7 +52,7 @@ under the License.
         <h2>cartesian category axis | xAxis: {min: undefined, max: undefined}</h2>
         <div class="chart" id="main1.1"></div>
 
-        <h2>cartesian category axis | xAxis.data is empty</h2>
+        <h2>cartesian category axis | xAxis.data is empty (always show nothing if dataZoom)</h2>
         <div class="chart" id="main1.2"></div>
 
         <h2>cartesian category axis | xAxis: {min: -10, max: '类目3'}</h2>
@@ -67,6 +69,9 @@ under the License.
 
         <h2>cartesian value axis | xAxis: {min: function, max: function}</h2>
         <div class="chart" id="main4.1"></div>
+
+        <h2>cartesian value axis | xAxis: {min: function, max: function}</h2>
+        <div class="chart" id="main4.2"></div>
 
         <h2>cartesian time axis | xAxis: {min: 'dataMin', max: 'dataMax'}</h2>
         <div class="chart" id="main5"></div>
@@ -95,7 +100,8 @@ under the License.
 
         <script>
 
-            function makeChart(id, option, noDataZoom) {
+        function makeChart(id, option, noDataZoom) {
+            require(['echarts'], function (echarts) {
                 var main = document.getElementById(id);
                 if (main) {
                     var chartMain = document.createElement('div');
@@ -124,7 +130,8 @@ under the License.
                         });
                     }
                 }
-            }
+            });
+        }
 
         </script>
 
@@ -463,6 +470,42 @@ under the License.
             });
         </script>
 
+        <script>
+            makeChart('main4.2', {
+                legend: {
+                    data: ['no point', 'one point', 'two points'],
+                    selectedMode: 'single'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'line'
+                    }
+                },
+                xAxis: {
+                    min: function (value) {
+                        return null
+                    },
+                    max: function (value) {
+                        return null;
+                    }
+                },
+                yAxis: {},
+                series: [{
+                    name: 'no point',
+                    type: 'line',
+                    data: []
+                }, {
+                    name: 'one point',
+                    type: 'line',
+                    data: [[2, 43]]
+                }, {
+                    name: 'two points',
+                    type: 'line',
+                    data: [[2, 43], [4, 99]]
+                }]
+            });
+        </script>
 
 
 

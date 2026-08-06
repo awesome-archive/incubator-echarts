@@ -22,7 +22,7 @@ under the License.
 <html>
     <head>
         <meta charset="utf-8">
-        <script src="lib/esl.js"></script>
+        <script src="lib/simpleRequire.js"></script>
         <script src="lib/config.js"></script>
         <script src="lib/jquery.min.js"></script>
         <script src="lib/facePrint.js"></script>
@@ -98,7 +98,7 @@ under the License.
         right: 20,
         top: 'center',
         style: {
-            image: 'http://echarts.baidu.com/images/favicon.png',
+            image: 'asset/echarts-logo.png',
             width: 50,
             height: 50,
             opacity: 0.5
@@ -204,6 +204,99 @@ under the License.
             },
             z: 100
         }]
+    }, {
+        type: 'group',
+        id: 'bl',
+        width: '100%',
+        height: '100%',
+        children: [{
+            type: 'rect',
+            right: 0,
+            bottom: 0,
+            shape: {
+                width: 200,
+                height: 100
+            },
+            style: {
+                stroke: 'blue',
+                fill: 'blue',
+                lineWidth: 2
+            }
+        }, {
+            type: 'rect',
+            position: [10, 20],
+            shape: {
+                width: 50,
+                height: 150
+            },
+            style: {
+                stroke: 'blue',
+                fill: 'blue',
+                lineWidth: 2
+            }
+        }, {
+            type: 'group',
+            width: '50%',
+            height: '50%',
+            children: [{
+                type: 'rect',
+                shape: {
+                    width: 100,
+                    height: 100
+                },
+                style: {
+                    stroke: 'blue',
+                    fill: 'blue',
+                    lineWidth: 2
+                },
+                right: 0,
+                bottom: 0
+            }]
+        }]
+    }, {
+        type: 'rect',
+        right: 0,
+        bottom: 0,
+        shape: {
+            width: 200,
+            height: 100
+        },
+        style: {
+            stroke: 'orange',
+            fill: 'transparent',
+            lineWidth: 2
+        }
+    }, {
+        type: 'rect',
+        position: [10, 20],
+        shape: {
+            width: 50,
+            height: 150
+        },
+        style: {
+            stroke: 'orange',
+            fill: 'transparent',
+            lineWidth: 2
+        }
+    }, {
+        type: 'rect',
+        shape: {
+            width: 100,
+            height: 100
+        },
+        style: {
+            stroke: 'orange',
+            fill: 'transparent',
+            lineWidth: 2
+        },
+        right: '50%',
+        bottom: '50%'
+    }, {
+        type: 'text',
+        position: [220, 20],
+        style: {
+            text: '蓝色矩形应与橙色矩形同一位置'
+        }
     }]
 }
             </textarea>
@@ -219,11 +312,6 @@ under the License.
             <script>
                 require([
                     'echarts'
-                    // 'echarts/chart/line',
-                    // 'echarts/component/graphic',
-                    // 'echarts/component/grid',
-                    // 'echarts/component/legend',
-                    // 'echarts/component/tooltip'
                 ], function (echarts) {
                     var main = getMain('main4');
                     if (!main.dom) {
@@ -298,7 +386,7 @@ under the License.
         origin: [75, 75],
         style: {
             fill: '#000',
-            image: 'http://echarts.baidu.com/images/favicon.png',
+            image: 'asset/echarts-logo.png',
             width: 150,
             height: 150,
             opacity: 0.4
@@ -401,11 +489,6 @@ under the License.
             <script>
                 require([
                     'echarts'
-                    // 'echarts/chart/line',
-                    // 'echarts/component/graphic',
-                    // 'echarts/component/grid',
-                    // 'echarts/component/legend',
-                    // 'echarts/component/tooltip'
                 ], function (echarts) {
                     var main = getMain('main5');
                     if (!main.dom) {
@@ -495,11 +578,6 @@ under the License.
             <script>
                 require([
                     'echarts'
-                    // 'echarts/chart/line',
-                    // 'echarts/component/graphic',
-                    // 'echarts/component/grid',
-                    // 'echarts/component/legend',
-                    // 'echarts/component/tooltip'
                 ], function (echarts) {
                     var main = getMain('main0');
                     if (!main.dom) {
@@ -567,11 +645,6 @@ under the License.
             <script>
                 require([
                     'echarts'
-                    // 'echarts/chart/line',
-                    // 'echarts/component/graphic',
-                    // 'echarts/component/grid',
-                    // 'echarts/component/legend',
-                    // 'echarts/component/tooltip'
                 ], function (echarts) {
                     var main = getMain('mainz');
                     if (!main.dom) {
@@ -632,11 +705,6 @@ under the License.
             <script>
                 require([
                     'echarts'
-                    // 'echarts/chart/line',
-                    // 'echarts/component/graphic',
-                    // 'echarts/component/grid',
-                    // 'echarts/component/legend',
-                    // 'echarts/component/tooltip'
                 ], function (echarts) {
                     var main = getMain('main1');
                     if (!main.dom) {
@@ -705,11 +773,6 @@ under the License.
             <script>
                 require([
                     'echarts'
-                    // 'echarts/chart/line',
-                    // 'echarts/component/graphic',
-                    // 'echarts/component/grid',
-                    // 'echarts/component/legend',
-                    // 'echarts/component/tooltip'
                 ], function (echarts) {
                     var main = getMain('main2');
                     if (!main.dom) {
@@ -850,11 +913,6 @@ under the License.
             <script>
                 require([
                     'echarts'
-                    // 'echarts/chart/line',
-                    // 'echarts/component/graphic',
-                    // 'echarts/component/grid',
-                    // 'echarts/component/legend',
-                    // 'echarts/component/tooltip'
                 ], function (echarts) {
                     var main = getMain('main3');
                     if (!main.dom) {

@@ -33,6 +33,7 @@
             'touch-test.html',
             'touch-candlestick.html',
             'tooltip-touch.html',
+            'ios13-z-bug.html',
             'bar.html',
             'line.html',
             'geoLine.html',
@@ -52,6 +53,11 @@
     }, {
         name: 'stream-cases',
         whiteList: [
+            'stream-basic1.html',
+            'stream-basic2.html',
+            'stream-basic3.html',
+            'stream-basic4.html',
+            'stream-basic5.html',
             'lines-ny-appendData.html',
             'scatter-stream-large.html',
             'scatter-stream-not-large.html',

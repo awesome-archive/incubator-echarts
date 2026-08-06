@@ -17,7 +17,7 @@
 * under the License.
 */
 
-module.exports = {
+export default {
     visualMap: {
         show: true,
         min: 0,
@@ -35,11 +35,11 @@ module.exports = {
             map: 'china',
             showLegendSymbol: true,
             label: {
-                normal: {
-                    show: false
-                },
-                emphasis: {
-                    show: false
+                show: false,
+            },
+            emphasis: {
+                label: {
+                    show: false,
                 }
             },
             data:[
@@ -85,10 +85,10 @@ module.exports = {
             mapType: 'china',
             showLegendSymbol: true,
             label: {
-                normal: {
-                    show: false
-                },
-                emphasis: {
+                show: false,
+            },
+            emphasis: {
+                label: {
                     show: false
                 }
             },
@@ -120,10 +120,10 @@ module.exports = {
             mapType: 'china',
             showLegendSymbol: true,
             label: {
-                normal: {
-                    show: false
-                },
-                emphasis: {
+                show: false,
+            },
+            emphasis: {
+                label: {
                     show: false
                 }
             },
